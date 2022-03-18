@@ -1,4 +1,5 @@
 <script setup="">
+    import favicon from "@/assets/favicon.png";
     import { RouterLink } from "vue-router";
 </script>
 
@@ -7,11 +8,11 @@
         <nav class="navbar top-navbar navbar-expand-md navbar-dark">
             <div class="navbar-header" data-logobg="skin6">
                 <RouterLink class="navbar-brand text-dark text-center" to="/">
-                    <b class="logo-icon">
+                    <!-- <b class="logo-icon">
                         NG
-                    </b>
+                    </b> -->
                     <span class="logo-text">
-                        IKLAN KOMERSIAL
+                        <img :src="favicon" alt="" style="height: 50px;">
                     </span>
                 </RouterLink>
                 <a class="nav-toggler waves-effect waves-light text-dark d-block d-md-none" href="javascript:void(0)"><i class="ti-menu ti-close"></i></a>
