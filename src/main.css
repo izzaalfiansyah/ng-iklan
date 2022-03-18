@@ -1,0 +1,13 @@
+.btn {
+    color: white !important;
+}
+
+.table {
+    white-space: nowrap;
+    overflow-y: hidden;
+    line-height: 2;
+}
+
+.btn-block {
+    width: 100%;
+}
