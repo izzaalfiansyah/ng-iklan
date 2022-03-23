@@ -91,6 +91,8 @@
                                 <th>Link Video</th>
                                 <th>Tarif</th>
                                 <th>Durasi</th>
+                                <th>Jumlah Tayang</th>
+                                <th>Total Tarif</th>
                                 <th>Status</th>
                                 <th>Pembayaran</th>
                                 <th>Opsi</th>
@@ -105,6 +107,8 @@
                                 </td>
                                 <td>{{ item.iklan.tarif_detail }}</td>
                                 <td>{{ item.iklan.durasi_detail }}</td>
+                                <td>{{ item.jumlah_tayang }}</td>
+                                <td>{{ item.tarif_total }}</td>
                                 <td>
                                     <span :class="'badge bg-' + (item.status == '1' ? 'success' : 'warning')">{{ item.status_detail }}</span>
                                 </td>

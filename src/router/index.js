@@ -5,7 +5,7 @@ const router = createRouter({
     routes: [
         {
             path: '/',
-            component: () => import('@/views/Home.vue'),
+            component: () => import('@/views/Index.vue'),
         },
         {
             path: '/kategori-iklan',
@@ -38,6 +38,10 @@ const router = createRouter({
         {
             path: '/register',
             component: () => import('@/views/Register.vue'),
+        },
+        {
+            path: '/home',
+            component: () => import('@/views/Home.vue'),
         }
     ],
 });

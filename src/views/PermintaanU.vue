@@ -24,6 +24,7 @@
             link_video: '',
             status: '0',
             bukti_pembayaran: '',
+            jumlah_tayang: 0,
             user_id: user.xid,
         },
     });
@@ -34,6 +35,7 @@
             link_video: '',
             status: '0',
             bukti_pembayaran: '',
+            jumlah_tayang: 0,
             user_id: user.xid,
         };
         state.is.loading = true;
@@ -133,6 +135,8 @@
                                 <th>Link Video</th>
                                 <th>Tarif</th>
                                 <th>Durasi</th>
+                                <th>Jumlah Tayang</th>
+                                <th>Total Tarif</th>
                                 <th>Status</th>
                                 <th>Pembayaran</th>
                                 <th>Opsi</th>
@@ -146,6 +150,8 @@
                                 </td>
                                 <td>{{ item.iklan.tarif_detail }}</td>
                                 <td>{{ item.iklan.durasi_detail }}</td>
+                                <td>{{ item.jumlah_tayang }}</td>
+                                <td>{{ item.tarif_total }}</td>
                                 <td>
                                     <span :class="'badge bg-' + (item.status == '1' ? 'success' : 'warning')">{{ item.status_detail }}</span>
                                 </td>
@@ -172,7 +178,7 @@
                                 </td>
                             </tr>
                             <tr v-else>
-                                <td colspan="7" align="center">data tidak tersedia</td>
+                                <td colspan="9" align="center">data tidak tersedia</td>
                             </tr>
                         </tbody>
                     </table>
@@ -204,6 +210,11 @@
                         <div class="form-group">
                             <ReqLabel>Link Video</ReqLabel>
                             <input type="url" class="form-control" v-model="state.req.link_video" placeholder="Masukkan Link Video" required>
+                        </div>
+
+                        <div class="form-group">
+                            <ReqLabel>Jumlah Tayang</ReqLabel>
+                            <input type="number" class="form-control" v-model="state.req.jumlah_tayang" placeholder="Masukkan Jumlah Tayang" required>
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -238,6 +249,11 @@
                         <div class="form-group">
                             <ReqLabel>Link Video</ReqLabel>
                             <input type="url" class="form-control" v-model="state.req.link_video" placeholder="Masukkan Link Video" required>
+                        </div>
+
+                        <div class="form-group">
+                            <ReqLabel>Jumlah Tayang</ReqLabel>
+                            <input type="number" class="form-control" v-model="state.req.jumlah_tayang" placeholder="Masukkan Jumlah Tayang" required>
                         </div>
                     </div>
                     <div class="modal-footer">

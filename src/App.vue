@@ -7,7 +7,7 @@
     const user = window.user;
 
     if (!user.xid) {
-        router.replace('/login');
+        router.replace('/home');
     }
 </script>
 

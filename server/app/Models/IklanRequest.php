@@ -17,11 +17,13 @@ class IklanRequest extends Model
         'status',
         'bukti_pembayaran',
         'user_id',
+        'jumlah_tayang',
     ];
 
     public $appends = [
         'status_detail',
         'bukti_pembayaran_url',
+        'tarif_total',
     ];
 
     public function getBuktiPembayaranUrlAttribute()
@@ -40,6 +42,11 @@ class IklanRequest extends Model
         }
 
         return $status;
+    }
+
+    public function getTarifTotalAttribute()
+    {
+        return 'Rp.' . ($this->iklan ? number_format($this->iklan->tarif * $this->jumlah_tayang, 0, ',', '.') : 0);
     }
 
     public $with = [
@@ -61,6 +68,7 @@ class IklanRequest extends Model
         'iklan_id' => 'required|integer',
         'link_video' => 'required',
         'user_id' => 'required|integer',
+        'jumlah_tayang' => 'required|integer',
         'status' => 'nullable|in:1,2,0',
         // 'bukti_pembayaran' => 'required',
     ];
