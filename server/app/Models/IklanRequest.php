@@ -18,12 +18,14 @@ class IklanRequest extends Model
         'bukti_pembayaran',
         'user_id',
         'jumlah_tayang',
+        'dibuatkan',
     ];
 
     public $appends = [
         'status_detail',
         'bukti_pembayaran_url',
-        'tarif_total',
+        'total',
+        'status_dibuatkan',
     ];
 
     public function getBuktiPembayaranUrlAttribute()
@@ -44,9 +46,25 @@ class IklanRequest extends Model
         return $status;
     }
 
-    public function getTarifTotalAttribute()
+    public function getTotalAttribute()
     {
-        return 'Rp.' . ($this->iklan ? number_format($this->iklan->tarif * $this->jumlah_tayang, 0, ',', '.') : 0);
+        $total = $this->iklan ? $this->iklan->tarif * $this->jumlah_tayang : 0;
+        $total += ($this->dibuatkan == '1') && $this->iklan ? $this->iklan->harga_pembuatan * $this->jumlah_tayang : 0;
+        
+        return 'Rp.' . number_format($total, 0, ',', '.');
+    }
+
+    public function getStatusDibuatkanAttribute()
+    {
+        if ($this->dibuatkan == '0') {
+            $status = 'tidak';
+        } else if ($this->dibuatkan == '1') {
+            $status = 'ya';
+        } else {
+            $status = 'tidak diketahui';
+        }
+
+        return $status;
     }
 
     public $with = [
@@ -70,6 +88,7 @@ class IklanRequest extends Model
         'user_id' => 'required|integer',
         'jumlah_tayang' => 'required|integer',
         'status' => 'nullable|in:1,2,0',
+        'dibuatkan' => 'required|in:0,1',
         // 'bukti_pembayaran' => 'required',
     ];
 }

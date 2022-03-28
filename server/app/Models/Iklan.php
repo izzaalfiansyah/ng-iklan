@@ -18,6 +18,7 @@ class Iklan extends Model
         'durasi',
         'tarif',
         'keterangan',
+        'harga_pembuatan',
     ];
 
     public $with = [
@@ -32,6 +33,7 @@ class Iklan extends Model
     public $appends = [
         'durasi_detail',
         'tarif_detail',
+        'harga_pembuatan_detail',
     ];
 
     public function getDurasiDetailAttribute()
@@ -44,6 +46,11 @@ class Iklan extends Model
         return 'Rp.' . number_format($this->tarif, 0, ',', '.');
     }
 
+    public function getHargaPembuatanDetailAttribute()
+    {
+        return 'Rp.' . number_format($this->harga_pembuatan, 0, ',', '.');
+    }
+
     const rules = [
         'jenis' => 'required',
         'sub_jenis' => 'nullable',
@@ -51,5 +58,6 @@ class Iklan extends Model
         'durasi' => 'required|integer',
         'tarif' => 'required|integer',
         'keterangan' => 'nullable',
+        'harga_pembuatan' => 'required|integer',
     ];
 }

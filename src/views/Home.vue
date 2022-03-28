@@ -42,6 +42,7 @@
                                 <th>Kategori</th>
                                 <th>Durasi</th>
                                 <th>Tarif</th>
+                                <th>Harga jika Dibuatkan</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -55,14 +56,15 @@
                                     <td>{{ item.kategori.nama }}</td>
                                     <td>{{ item.durasi_detail }}</td>
                                     <td>{{ item.tarif_detail }}</td>
+                                    <td>{{ item.harga_pembuatan_detail }}</td>
                                 </tr>
                                 <tr>
                                     <td>Keterangan:</td>
-                                    <td colspan="3">{{ item.keterangan }}</td>
+                                    <td colspan="4">{{ item.keterangan }}</td>
                                 </tr>
                             </template>
                             <tr v-else>
-                                <td colspan="4" align="center">data tidak tersedia</td>
+                                <td colspan="5" align="center">data tidak tersedia</td>
                             </tr>
                         </tbody>
                     </table>

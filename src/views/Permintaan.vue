@@ -92,7 +92,8 @@
                                 <th>Tarif</th>
                                 <th>Durasi</th>
                                 <th>Jumlah Tayang</th>
-                                <th>Total Tarif</th>
+                                <th>Biaya Pembuatan</th>
+                                <th>Total</th>
                                 <th>Status</th>
                                 <th>Pembayaran</th>
                                 <th>Opsi</th>
@@ -108,7 +109,8 @@
                                 <td>{{ item.iklan.tarif_detail }}</td>
                                 <td>{{ item.iklan.durasi_detail }}</td>
                                 <td>{{ item.jumlah_tayang }}</td>
-                                <td>{{ item.tarif_total }}</td>
+                                <td>{{ item.dibuatkan == '1' ? item.iklan.harga_pembuatan_detail : 'Rp.0' }}</td>
+                                <td>{{ item.total }}</td>
                                 <td>
                                     <span :class="'badge bg-' + (item.status == '1' ? 'success' : 'warning')">{{ item.status_detail }}</span>
                                 </td>
@@ -135,7 +137,7 @@
                                 </td>
                             </tr>
                             <tr v-else>
-                                <td colspan="8" align="center">data tidak tersedia</td>
+                                <td colspan="11" align="center">data tidak tersedia</td>
                             </tr>
                         </tbody>
                     </table>

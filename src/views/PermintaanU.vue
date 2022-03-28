@@ -26,6 +26,7 @@
             bukti_pembayaran: '',
             jumlah_tayang: 0,
             user_id: user.xid,
+            dibuatkan: '',
         },
     });
 
@@ -37,6 +38,7 @@
             bukti_pembayaran: '',
             jumlah_tayang: 0,
             user_id: user.xid,
+            dibuatkan: '',
         };
         state.is.loading = true;
         jQuery('.modal.fade').modal('hide');
@@ -136,7 +138,8 @@
                                 <th>Tarif</th>
                                 <th>Durasi</th>
                                 <th>Jumlah Tayang</th>
-                                <th>Total Tarif</th>
+                                <th>Harga Pembuatan</th>
+                                <th>Total</th>
                                 <th>Status</th>
                                 <th>Pembayaran</th>
                                 <th>Opsi</th>
@@ -151,7 +154,8 @@
                                 <td>{{ item.iklan.tarif_detail }}</td>
                                 <td>{{ item.iklan.durasi_detail }}</td>
                                 <td>{{ item.jumlah_tayang }}</td>
-                                <td>{{ item.tarif_total }}</td>
+                                <td>{{ item.dibuatkan == '1' ? item.iklan.harga_pembuatan_detail : 'Rp.0' }}</td>
+                                <td>{{ item.total }}</td>
                                 <td>
                                     <span :class="'badge bg-' + (item.status == '1' ? 'success' : 'warning')">{{ item.status_detail }}</span>
                                 </td>
@@ -178,7 +182,7 @@
                                 </td>
                             </tr>
                             <tr v-else>
-                                <td colspan="9" align="center">data tidak tersedia</td>
+                                <td colspan="10" align="center">data tidak tersedia</td>
                             </tr>
                         </tbody>
                     </table>
@@ -210,6 +214,15 @@
                         <div class="form-group">
                             <ReqLabel>Link Video</ReqLabel>
                             <input type="url" class="form-control" v-model="state.req.link_video" placeholder="Masukkan Link Video" required>
+                        </div>
+
+                        <div class="form-group">
+                            <ReqLabel>Dibuatkan</ReqLabel>
+                            <select v-model="state.req.dibuatkan" class="form-control" required>
+                                <option value="" disabled>Pilih Status</option>
+                                <option value="1">Ya</option>
+                                <option value="2">Tidak</option>
+                            </select>
                         </div>
 
                         <div class="form-group">
@@ -249,6 +262,15 @@
                         <div class="form-group">
                             <ReqLabel>Link Video</ReqLabel>
                             <input type="url" class="form-control" v-model="state.req.link_video" placeholder="Masukkan Link Video" required>
+                        </div>
+
+                        <div class="form-group">
+                            <ReqLabel>Dibuatkan</ReqLabel>
+                            <select v-model="state.req.dibuatkan" class="form-control" required>
+                                <option value="" disabled>Pilih Status</option>
+                                <option value="1">Ya</option>
+                                <option value="2">Tidak</option>
+                            </select>
                         </div>
 
                         <div class="form-group">

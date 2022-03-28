@@ -24,6 +24,7 @@
             durasi: '',
             tarif: '',
             keterangan: '',
+            harga_pembuatan: '',
         },
     });
 
@@ -35,6 +36,7 @@
             durasi: '',
             tarif: '',
             keterangan: '',
+            harga_pembuatan: '',
         };
         state.is.loading = true;
         jQuery('.modal.fade').modal('hide');
@@ -124,6 +126,7 @@
                                 <th>Kategori</th>
                                 <th>Durasi</th>
                                 <th>Tarif</th>
+                                <th>Harga jika Dibuatkan</th>
                                 <th>Opsi</th>
                             </tr>
                         </thead>
@@ -138,6 +141,7 @@
                                     <td>{{ item.kategori.nama }}</td>
                                     <td>{{ item.durasi_detail }}</td>
                                     <td>{{ item.tarif_detail }}</td>
+                                    <td>{{ item.harga_pembuatan_detail }}</td>
                                     <td align="center">
                                         <button class="btn me-1 btn-primary btn-sm" type="button" data-bs-toggle="modal" data-bs-target="#edit" @click="state.req = item">
                                             <i class="fa fa-edit"></i>
@@ -149,11 +153,11 @@
                                 </tr>
                                 <tr>
                                     <td>Keterangan:</td>
-                                    <td colspan="4">{{ item.keterangan }}</td>
+                                    <td colspan="5">{{ item.keterangan }}</td>
                                 </tr>
                             </template>
                             <tr v-else>
-                                <td colspan="5" align="center">data tidak tersedia</td>
+                                <td colspan="6" align="center">data tidak tersedia</td>
                             </tr>
                         </tbody>
                     </table>
@@ -203,6 +207,11 @@
                                     <input type="number" required v-model="state.req.tarif" placeholder="Masukkan Tarif" class="form-control" min="0" />
                                 </div>
                             </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="">Harga Jika Dibuatkan</label>
+                            <input type="number" class="form-control" placeholder="Masukkan Harga" v-model="state.req.harga_pembuatan" />
                         </div>
 
                         <div class="form-group">
@@ -260,6 +269,11 @@
                                     <input type="number" required v-model="state.req.tarif" placeholder="Masukkan Tarif" class="form-control" min="0" />
                                 </div>
                             </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="">Harga Jika Dibuatkan</label>
+                            <input type="number" class="form-control" placeholder="Masukkan Harga" v-model="state.req.harga_pembuatan" />
                         </div>
 
                         <div class="form-group">
