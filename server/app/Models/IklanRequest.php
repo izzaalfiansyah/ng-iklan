@@ -16,6 +16,7 @@ class IklanRequest extends Model
         'link_video',
         'status',
         'bukti_pembayaran',
+        'nomor_rekening',
         'user_id',
         'jumlah_tayang',
         'dibuatkan',
@@ -89,6 +90,7 @@ class IklanRequest extends Model
         'jumlah_tayang' => 'required|integer',
         'status' => 'nullable|in:1,2,0',
         'dibuatkan' => 'required|in:0,1',
+        'nomor_rekening' => 'nullable|numeric',
         // 'bukti_pembayaran' => 'required',
     ];
 }

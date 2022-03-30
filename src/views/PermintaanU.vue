@@ -27,6 +27,7 @@
             jumlah_tayang: 0,
             user_id: user.xid,
             dibuatkan: '',
+            nomor_rekening: '',
         },
     });
 
@@ -39,6 +40,7 @@
             jumlah_tayang: 0,
             user_id: user.xid,
             dibuatkan: '',
+            nomor_rekening: '',
         };
         state.is.loading = true;
         jQuery('.modal.fade').modal('hide');
@@ -165,13 +167,13 @@
                                 </td>
                                 <td align="center">
                                     <button class="btn btn-sm me-1 btn-info" type="button" data-bs-toggle="modal" data-bs-target="#pembayaran" @click="
-                                        state.req = item
+                                        state.req = item;
                                         state.req.bukti_pembayaran = '';
                                     ">
                                         <i class="fa fa-edit"></i> Pembayaran
                                     </button>
                                     <button class="btn btn-sm me-1 btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#edit" @click="
-                                        state.req = item
+                                        state.req = item;
                                         state.req.bukti_pembayaran = '';
                                     ">
                                         <i class="fa fa-edit"></i>
@@ -221,7 +223,7 @@
                             <select v-model="state.req.dibuatkan" class="form-control" required>
                                 <option value="" disabled>Pilih Status</option>
                                 <option value="1">Ya</option>
-                                <option value="2">Tidak</option>
+                                <option value="0">Tidak</option>
                             </select>
                         </div>
 
@@ -269,7 +271,7 @@
                             <select v-model="state.req.dibuatkan" class="form-control" required>
                                 <option value="" disabled>Pilih Status</option>
                                 <option value="1">Ya</option>
-                                <option value="2">Tidak</option>
+                                <option value="0">Tidak</option>
                             </select>
                         </div>
 
@@ -300,6 +302,11 @@
                             <ReqLabel>Pilih File</ReqLabel>
                             <input type="file" accept="image/*" class="form-control" required @change="handleBuktiPembayaran">
                             <small class="form-control-feedback">Kirim screenshot gambar bukti pembayaran</small>
+                        </div>
+
+                        <div class="form-group">
+                            <ReqLabel>Nomor Rekening</ReqLabel>
+                            <input type="number" class="form-control" required min="0" v-model="state.req.nomor_rekening" placeholder="Masukkan Nomor Rekening">
                         </div>
                     </div>
                     <div class="modal-footer">
