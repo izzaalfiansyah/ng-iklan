@@ -298,15 +298,29 @@
                     </div>
                     <div class="modal-body">
                         <Loading v-if="state.is.submit"></Loading>
+                        <div class="card shadow">
+                            <div class="card-body">
+                                <div class="form-group">
+                                    Kirimkan pembayaran anda ke:
+                                    <table>
+                                        <tr>
+                                            <td>No. Rekening</td>
+                                            <td> : </td>
+                                            <td>1000105000311</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Atas Nama</td>
+                                            <td> : </td>
+                                            <td>TVRI STASIUN PAPUA</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
                         <div class="form-group">
                             <ReqLabel>Pilih File</ReqLabel>
                             <input type="file" accept="image/*" class="form-control" required @change="handleBuktiPembayaran">
                             <small class="form-control-feedback">Kirim screenshot gambar bukti pembayaran</small>
-                        </div>
-
-                        <div class="form-group">
-                            <ReqLabel>Nomor Rekening</ReqLabel>
-                            <input type="number" class="form-control" required min="0" v-model="state.req.nomor_rekening" placeholder="Masukkan Nomor Rekening">
                         </div>
                     </div>
                     <div class="modal-footer">
