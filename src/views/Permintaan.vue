@@ -94,7 +94,6 @@
                                 <th>Jumlah Tayang</th>
                                 <th>Biaya Pembuatan</th>
                                 <th>Total</th>
-                                <th>Nomor Rekening</th>
                                 <th>Status</th>
                                 <th>Pembayaran</th>
                                 <th>Opsi</th>
@@ -112,7 +111,6 @@
                                 <td>{{ item.jumlah_tayang }}</td>
                                 <td>{{ item.dibuatkan == '1' ? item.iklan.harga_pembuatan_detail : 'Rp.0' }}</td>
                                 <td>{{ item.total }}</td>
-                                <td>{{ item.nomor_rekening }}</td>
                                 <td>
                                     <span :class="'badge bg-' + (item.status == '1' ? 'success' : 'warning')">{{ item.status_detail }}</span>
                                 </td>

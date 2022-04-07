@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Models\IklanRequest as Model;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 
 class IklanRequestController extends Controller
@@ -100,6 +101,11 @@ class IklanRequestController extends Controller
 
         $data = $schema->validated();
         $item = Model::find($id);
+
+        if ($item->status !== $req->status) {
+            $item->status = $req->status;
+            Mail::to($item->user->email)->send(new \App\Mail\PersetujuanRequestIklan($item));
+        }
 
         if ($req->bukti_pembayaran) {
             if (strpos($req->bukti_pembayaran, ';base64')) {
